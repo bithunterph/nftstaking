@@ -8,18 +8,17 @@ const Mint: NextPage = () => {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.h1}>Mint An NFT!</h1>
+      <h1 className={styles.h1}>Mint A New Bored Ape Miner NFT!</h1>
 
       <p className={styles.explain}>
-        Here is where we use our <b>NFT Drop</b> contract to allow users to mint
-        one of the NFTs that we lazy minted.
+        Mint and Collect our Bored Ape Miner NFT Club Collection
       </p>
       <hr className={`${styles.smallDivider} ${styles.detailPageHr}`} />
 
       <Web3Button
         colorMode="dark"
         accentColor="#5204BF"
-        contractAddress="0x322067594DBCE69A9a9711BC393440aA5e3Aaca1"
+        contractAddress="0x5518f9572987aeB2852087cAf95f4207EEd92b05"
         action={(contract) => contract.erc721.claim(1)}
         onSuccess={() => {
           alert("NFT Claimed!");

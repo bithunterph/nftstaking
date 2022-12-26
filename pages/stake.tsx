@@ -1,24 +1,24 @@
 import {
   ThirdwebNftMedia,
   useAddress,
-  useMetamask,
   useTokenBalance,
   useOwnedNFTs,
   useContract,
+  useWalletConnect,
+  ConnectWallet,
 } from "@thirdweb-dev/react";
 import { BigNumber, ethers } from "ethers";
 import type { NextPage } from "next";
 import { useEffect, useState } from "react";
 import styles from "../styles/Home.module.css";
 
-const nftDropContractAddress = "0x322067594DBCE69A9a9711BC393440aA5e3Aaca1";
-const tokenContractAddress = "0xb1cF059e6847e4270920a02e969CA2E016AeA22B";
-const stakingContractAddress = "0xB712975e13427ac804177E7CebF08781bbF9B89c";
+const nftDropContractAddress = "0x5518f9572987aeB2852087cAf95f4207EEd92b05";
+const tokenContractAddress = "0x6fd5046a554102De9ef0fa0e59dd81C775770f92";
+const stakingContractAddress = "0x4F209f7FF426EF01DCC2d06e2254F8Cd395AAeB9";
 
 const Stake: NextPage = () => {
   // Wallet Connection Hooks
   const address = useAddress();
-  const connectWithMetamask = useMetamask();
 
   // Contract Hooks
   const { contract: nftDropContract } = useContract(
@@ -118,9 +118,8 @@ const Stake: NextPage = () => {
       <hr className={`${styles.divider} ${styles.spacerTop}`} />
 
       {!address ? (
-        <button className={styles.mainButton} onClick={connectWithMetamask}>
-          Connect Wallet
-        </button>
+        // this has been change to ConnectWallet
+        <ConnectWallet/>
       ) : (
         <>
           <h2>Your Tokens</h2>
